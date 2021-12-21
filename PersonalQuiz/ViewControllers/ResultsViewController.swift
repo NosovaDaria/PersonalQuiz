@@ -46,6 +46,8 @@ class ResultsViewController: UIViewController {
             case .turtle:
                 turtleCount += 1
             }
+        }
+            
             if dogCount >= catCount && dogCount >= rabbitCount && dogCount >= turtleCount {
                 result = .dog
             } else if catCount >= dogCount && catCount >= rabbitCount && catCount >= turtleCount {
@@ -55,7 +57,6 @@ class ResultsViewController: UIViewController {
             } else if turtleCount >= dogCount && turtleCount >= catCount && turtleCount >= rabbitCount {
                 result = .turtle
             }
-        }
     }
 
 }
