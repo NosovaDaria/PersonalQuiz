@@ -25,7 +25,7 @@ class ResultsViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         
         calculateResult()
-        resultAnimalLabel.text = "Вы - \(result.rawValue)"
+        resultAnimalLabel.text = "Вы - \(result.rawValue)!"
         resultDescriptionLabel.text = "\(result.definition)"
     }
     
