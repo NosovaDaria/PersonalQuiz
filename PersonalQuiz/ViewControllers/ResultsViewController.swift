@@ -30,33 +30,15 @@ class ResultsViewController: UIViewController {
     }
     
     private func calculateResult() {
-        var dogCount = 0
-        var catCount = 0
-        var rabbitCount = 0
-        var turtleCount = 0
+        var answersCount = [AnimalType: Int]()
         
         for answer in answersChoosen {
-            switch answer.type {
-            case .dog :
-                dogCount += 1
-            case .cat:
-                catCount += 1
-            case .rabbit:
-                rabbitCount += 1
-            case .turtle:
-                turtleCount += 1
-            }
+            answersCount[answer.type] = answersCount[answer.type] ?? 0 + 1
         }
-            
-            if dogCount >= catCount && dogCount >= rabbitCount && dogCount >= turtleCount {
-                result = .dog
-            } else if catCount >= dogCount && catCount >= rabbitCount && catCount >= turtleCount {
-                result = .cat
-            } else if rabbitCount >= dogCount && rabbitCount >= catCount && rabbitCount >= turtleCount {
-                result = .rabbit
-            } else if turtleCount >= dogCount && turtleCount >= catCount && turtleCount >= rabbitCount {
-                result = .turtle
-            }
+
+        result = answersCount.max(by: {$0.value < $1.value})?.key
+        
     }
 
 }
+
